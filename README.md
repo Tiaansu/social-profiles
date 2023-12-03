@@ -25,13 +25,13 @@ https://social-profiles.tiaansu.vercel.app/:userId
 
 There are few options to customize this display using query parameters:
 
-- __Theme__
+- Theme
     - Append the query param `theme=:theme` to the end of the URL, replacing `:theme` with either `light` or `dark`. This will change the background and the font colors, but the background can be overridden with the __Background Color__ parameter.
 
-- __Background Color__
+- Background Color
     - Append the query param `bg=:bg` to the end of the URL, replacing `:color` with a hex color of your choice ([omit](https://www.merriam-webster.com/dictionary/omit) the #)
 
-- __Border Radius
+- Border Radius
     - Append the query param `borderRadius=:radius` to the end of the URL, replacing `:radius` with a radius of your choice. (default `10px`)
 
 > [!NOTE]  
