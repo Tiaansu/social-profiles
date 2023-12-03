@@ -34,5 +34,5 @@ There are few options to customize this display using query parameters:
 - __Border Radius
     - Append the query param `borderRadius=:radius` to the end of the URL, replacing `:radius` with a radius of your choice. (default `10px`)
 
-> **NOTE**   
+> [!NOTE]  
 > _If you're using this in your profile, feel free to show support and give [this repo](https://github.com/Tiaansu/social-profiles) a ⭐ star! It means a lot, thank you :)_
