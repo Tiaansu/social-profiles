@@ -32,7 +32,7 @@ export default function Profile({ session }: ProfileProps) {
             }
         };
         fetchSocialProfiles();
-    }, []);
+    }, [session.user.id]);
 
     return (
         <>
