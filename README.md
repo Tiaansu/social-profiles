@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# social-profiles
 
-## Getting Started
+_Special thanks to [@cnrad](https://github.com/cnrad/) for creating [this project](https://lanyard.cnrad.dev/), it's my inspiration for this project._
 
-First, run the development server:
+## Usage
+First, go to this [website](https://social-profiles.tiaansu.vercel.app/) and login your google account.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+You have two options to share your social profiles, first is by adding it in your `README.md` file and by adding it in your bio.
+
+- For adding in your `README.md`, copy this and replace `:userId` with your userId (found on the [website](https://social-profiles.tiaansu.vercel.app/)).
+```md
+[![Discord Presence](https://social-profiles.tiaansu.vercel.app/api/social-profiles/:id/github)](https://social-profiles.tiaansu.vercel.app/)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It should display something similar to the following:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[![Discord Presence](https://social-profiles.tiaansu.vercel.app/api/social-profiles/656aca4fdb892d8b7029c5f8/github)](https://github.com/Tiaansu)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- For adding in your bio, copy this and replace `:userId` with your userId (found on the [website](https://social-profiles.tiaansu.vercel.app/)).
+```md
+https://social-profiles.tiaansu.vercel.app/:userId
+```
 
-## Learn More
+## Options
 
-To learn more about Next.js, take a look at the following resources:
+There are few options to customize this display using query parameters:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- __Theme__
+    - Append the query param `theme=:theme` to the end of the URL, replacing `:theme` with either `light` or `dark`. This will change the background and the font colors, but the background can be overridden with the __Background Color__ parameter.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- __Background Color__
+    - Append the query param `bg=:bg` to the end of the URL, replacing `:color` with a hex color of your choice ([omit](https://www.merriam-webster.com/dictionary/omit) the #)
 
-## Deploy on Vercel
+- __Border Radius
+    - Append the query param `borderRadius=:radius` to the end of the URL, replacing `:radius` with a radius of your choice. (default `10px`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> **NOTE**   
+> _If you're using this in your profile, feel free to show support and give [this repo](https://github.com/Tiaansu/social-profiles) a ⭐ star! It means a lot, thank you :)_

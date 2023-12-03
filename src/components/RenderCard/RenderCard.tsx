@@ -9,8 +9,6 @@ type Parameters = {
     borderRadius?: string;
 }
 
-const parseBool = (string: string | undefined): boolean => string === 'true' ? true : string === '1' ? true : false;
-
 interface RenderCardProps {
     body: Users;
     socialProfiles: SocialProfile[];
@@ -34,16 +32,19 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
         avatar = await encodeBase64(body.image);
     }
 
-    const brandIcons: string[] = [];
+    const brandIcons: Record<string, string> = {};
+    const rawFetch: any[] = [];
 
     for (const socialProfile of socialProfiles) {
-        brandIcons.push(await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/assets/brand-icons/svg/brand-${socialProfile.platform.replace('email', 'gmail')}.svg`)
-        .then((res) => {
-            return res.text();
-        }).then((text) => {
-            return text.replace(/{{ background }}/g, rgba(socialProfile.color, 0.3)).replace(/{{ main }}/g, socialProfile.color);
-        }));
+        rawFetch.push(fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/assets/brand-icons/svg/brand-${socialProfile.platform.replace('email', 'gmail')}.svg`)
+            .then((res) => {
+                return res.text();
+            }).then((text) => {
+                brandIcons[socialProfile.id] = text.replace(/{{ background }}/g, rgba(socialProfile.color, 0.3)).replace(/{{ main }}/g, socialProfile.color);
+            }));
     }
+    
+    await Promise.all(rawFetch);
 
     return `
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="500px" height="${((Math.round(socialProfiles.length / 2) - 1) * 40) + 200}">
@@ -132,7 +133,7 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
                         font-size: 0.75rem;
                         gap: 10px;
                     ">
-                        ${socialProfiles.map((socialProfile, index) => `
+                        ${socialProfiles.map((socialProfile) => `
                             <div style="
                                 width: auto;
                                 height: 40px;
@@ -149,7 +150,7 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
                                     justify-content: center;
                                     align-items: center;
                                 "> 
-                                    ${brandIcons[index]}
+                                    ${brandIcons[socialProfile.id]}
                                 </div>
                                 <p style="
                                     margin-left: 10px;

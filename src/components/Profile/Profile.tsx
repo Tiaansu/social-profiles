@@ -5,6 +5,7 @@ import { Session } from 'next-auth'
 import SocialProfiles, { SocialProfileSkeleton } from './SocialProfiles';
 import { useEffect, useState } from 'react';
 import AddSocialProfileButton from './AddSocialProfileButton';
+import ShareSocialProfiles from './ShareSocialProfiles';
 
 interface ProfileProps {
     session: Session;
@@ -41,10 +42,13 @@ export default function Profile({ session }: ProfileProps) {
                 mb='lg'
             >
                 <Group>
-                    <Avatar src={session.user.image} alt='Your profile picture' radius='xl' />
-                    <Text>Hello, <Text span c='green'>{session.user.name}</Text></Text>
+                    <Group>
+                        <Avatar src={session.user.image} alt='Your profile picture' radius='xl' />
+                        <Text>Hello, <Text span c='green'>{session.user.name}</Text></Text>
+                    </Group>
+                    <AddSocialProfileButton session={session} setSocialProfiles={setSocialProfiles} />
                 </Group>
-                <AddSocialProfileButton session={session} setSocialProfiles={setSocialProfiles} />
+                <ShareSocialProfiles session={session} disabled={!!!socialProfiles.length} />
             </Group>
             {errorMessage ? (
                 <></>
