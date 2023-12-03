@@ -36,4 +36,4 @@ There are few options to customize this display using query parameters:
 
 > [!NOTE]  
 > _If you're using this in your profile, feel free to show support and give [this repo](https://github.com/Tiaansu/social-profiles) a ⭐ star! It means a lot, thank you :)_   
-> If you also did like this project, consider sponsoring me (long url is not that good, right?)
+> If you also did like this project, consider sponsoring me (**long url is not that good, right?**)

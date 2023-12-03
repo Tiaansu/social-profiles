@@ -36,7 +36,7 @@ export default function ShareSocialProfiles({ session, disabled }: ShareSocialPr
         <Group>
             <Group>
                 <Text>
-                    For the card options, go <Anchor href='https://github.com/Tiaansu/social-profiles#options'>here</Anchor>
+                    For the card options, go <Anchor href='https://github.com/Tiaansu/social-profiles#options' target='_blank' c='green'>here</Anchor>
                 </Text>
                 <Button
                     variant='light'
