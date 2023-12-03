@@ -27,10 +27,15 @@ import {
     IconBrandFacebook, 
     IconBrandGithub, 
     IconBrandGitlab, 
+    IconBrandGmail, 
     IconBrandInstagram, 
+    IconBrandLinkedin, 
+    IconBrandLinktree, 
     IconBrandReddit, 
     IconBrandSlack, 
     IconBrandTiktok, 
+    IconBrandTwitch, 
+    IconBrandX, 
     IconCheck, 
     IconError404, 
     IconMail,
@@ -68,7 +73,11 @@ function getSocialProfileBrandIcon(brand: string): React.JSX.Element {
         case 'discord': return <IconBrandDiscord size={24} />;
         case 'slack': return <IconBrandSlack size={24} />;
         case 'tiktok': return <IconBrandTiktok size={24} />;
-        case 'email': return <IconMail size={24} />;
+        case 'email': return <IconBrandGmail size={24} />;
+        case 'x': return <IconBrandX size={24} />;
+        case 'linkedin': return <IconBrandLinkedin size={24} />;
+        case 'linktree': return <IconBrandLinktree size={24} />;
+        case 'twitch': return <IconBrandTwitch size={24} />;
         default: return <IconError404 size={24} />
     }
 }

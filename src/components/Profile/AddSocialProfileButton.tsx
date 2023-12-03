@@ -26,11 +26,16 @@ export const platformOptions: ComboboxData = [
     { label: 'Reddit', value: 'reddit' },
     { label: 'GitHub', value: 'github' },
     { label: 'GitLab', value: 'gitlab' },
+    { label: 'LinkedIn', value: 'linkedin' },
+    { label: 'Linktree', value: 'linktree' },
+    { label: 'Threads', value: 'threads' },
+    { label: 'Twitch', value: 'twitch' },
     { label: 'BitBucket', value: 'bitbucket' },
     { label: 'Discord', value: 'discord' },
     { label: 'Slack', value: 'slack' },
     { label: 'Tiktok', value: 'tiktok' },
-    { label: 'Email', value: 'email' }
+    { label: 'Email', value: 'email' },
+    { label: 'X (Twitter)', value: 'x' }
 ];
 
 export const colorSwatches: string[] = ['#25262b', '#868e96', '#fa5252', '#e64980', '#be4bdb', '#7950f2', '#4c6ef5', '#228be6', '#15aabf', '#12b886', '#40c057', '#82c91e', '#fab005', '#fd7e14'];
