@@ -16,7 +16,7 @@ export default function UserProfile({ user, socialProfiles }: UserProfileProps) 
             >
                 <Group>
                     <Avatar src={user.image} alt={`${user.username}'s profile picture`} radius='xl' />
-                    <Text>Welcome to <Text span c='green'>{user.username}</Text>'s profile</Text>
+                    <Text>Welcome to <Text span c='green'>{user.username}</Text>&apos;s profile</Text>
                 </Group>
             </Group>
 
