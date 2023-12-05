@@ -8,7 +8,7 @@ interface Props {
     params: { userId: string };
 }
 
-export async function getUserAndSocialProfiles({ params }: Props): Promise<{
+async function getUserAndSocialProfiles({ params }: Props): Promise<{
     user: Users | null;
     socialProfiles: SocialProfile[]
 }> {
