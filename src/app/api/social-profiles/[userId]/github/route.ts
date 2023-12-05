@@ -30,10 +30,6 @@ export const GET = async (req: NextRequest, { params }: { params: { userId: stri
 
         const rawSocialProfiles = await prisma.socialProfiles.findMany({ where: { userId } });
 
-        if (!rawSocialProfiles) {
-            return NextResponse.json({ message: 'That user does not have social profiles yet' }, { status: 403 });
-        }
-
         const socialProfiles: SocialProfile[] = rawSocialProfiles.map((socialProfile) => {
             return {
                 id: socialProfile.id,

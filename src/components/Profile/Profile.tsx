@@ -25,7 +25,7 @@ export default function Profile({ session }: ProfileProps) {
                     return setErrorMessage((await res.json()).message);
                 }
 
-                setSocialProfiles(await res.json());
+                setSocialProfiles((await res.json()).socialProfiles);
             } catch (error) {
                 setErrorMessage('Something went wrong');
             } finally {

@@ -47,12 +47,12 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
     await Promise.all(rawFetch);
 
     return `
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="500px" height="${((Math.round(socialProfiles.length / 2) - 1) * 40) + 200}">
-            <foreignObject x="0" y="0" width="500px" height="${((Math.round(socialProfiles.length / 2) - 1) * 40) + 200}">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="500px" height="${(((socialProfiles.length / 2) - 1) * 40) + 200}">
+            <foreignObject x="0" y="0" width="500px" height="${(((socialProfiles.length / 2) - 1) * 40) + 200}">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="
                     position: absolute;
                     width: 490px;
-                    height: ${((Math.round(socialProfiles.length / 2) - 1) * 40) + 190}px;
+                    height: ${(((socialProfiles.length / 2) - 1) * 40) + 190}px;
                     inset: 0;
                     background-color: #${backgroundColor};
                     color: ${theme === "dark" ? "#fff" : "#000"};
@@ -71,7 +71,7 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
                         flex-direction: row;
                         padding-bottom: 5px;
                         border-bottom: solid 0.5px ${
-                            theme === 'dark' ? 'hsl(0, 0%, 100%, 10%)' : 'hsl(0, 0%, 0%, 10%)'
+                            theme === 'dark' ? 'hsl(0, 0%, 100%, 10%' : 'hsl(0, 0%, 0%, 10%)'
                         }
                     ">
                         <div style="
@@ -126,43 +126,67 @@ export default async function RenderCard({ body, socialProfiles, params }: Rende
 
                     <div style="
                         padding-top: 18px;
-                        display: grid;
-                        grid-template-columns: repeat(2, 220px);
-                        height: ${(Math.round(socialProfiles.length / 2) - 1) * 40}px;
+                        height: ${((socialProfiles.length / 2) - 1) * 40}px;
                         margin: 0 15px;
                         font-size: 0.75rem;
                         gap: 10px;
+                        ${!Boolean(socialProfiles.length) ? `
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        ` : `
+                            display: grid;
+                            grid-template-columns: repeat(2, 220px);
+                        `}
                     ">
-                        ${socialProfiles.map((socialProfile) => `
+                        ${!Boolean(socialProfiles.length) ? `
                             <div style="
-                                width: auto;
-                                height: 40px;
                                 display: flex;
+                                flex-direction: row;
+                                justify-content: center;
                                 align-items: center;
                             ">
-                                <div style="
-                                    width: 40px;
-                                    height: 40px;
-                                    border: solid 0.5px #222;
-                                    border-radius: 10px;
-                                    background-color: ${rgba(socialProfile.color, 0.3)};
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                "> 
-                                    ${brandIcons[socialProfile.id]}
-                                </div>
                                 <p style="
-                                    margin-left: 10px;
-                                    text-overflow: ellipsis;
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    width: 180px;
+                                    font-style: italic;
+                                    font-size: 0.8rem;
+                                    color: ${theme === 'dark' ? '#aaa' : '#444'};
+                                    height: auto;
                                 ">
-                                    ${socialProfile.label}
+                                    No social profiles
                                 </p>
                             </div>
-                        `).join('')}
+                        ` : `
+                            ${socialProfiles.map((socialProfile) => `
+                                <div style="
+                                    width: auto;
+                                    height: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                ">
+                                    <div style="
+                                        width: 40px;
+                                        height: 40px;
+                                        border: solid 0.5px #222;
+                                        border-radius: 10px;
+                                        background-color: ${rgba(socialProfile.color, 0.3)};
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    "> 
+                                        ${brandIcons[socialProfile.id]}
+                                    </div>
+                                    <p style="
+                                        margin-left: 10px;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        width: 180px;
+                                    ">
+                                        ${socialProfile.label}
+                                    </p>
+                                </div>
+                            `).join('')}
+                        `}
                     </div>
                 </div>
 

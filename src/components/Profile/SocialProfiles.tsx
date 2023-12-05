@@ -62,7 +62,7 @@ interface SocialProfileProps {
     setSocialProfiles: (value: SetStateAction<SocialProfile[]>) => void;
 }
 
-function getSocialProfileBrandIcon(brand: string): React.JSX.Element {
+export function getSocialProfileBrandIcon(brand: string): React.JSX.Element {
     switch (brand) {
         case 'facebook': return <IconBrandFacebook size={24} />;
         case 'instagram': return <IconBrandInstagram size={24} />;
@@ -382,7 +382,7 @@ export default function SocialProfiles({ session, socialProfiles, setSocialProfi
         <Text>No social profiles found, add one first.</Text>
     ) : (
         <SimpleGrid 
-            cols={{ base: 1, xs: 2, sm: 2, lg: 3 }}
+            cols={{ base: 1, xs: 2, lg: 3 }}
             spacing={{ base: 10, sm: 'lg' }}
             verticalSpacing={{ base: 'sm', sm: 'lg' }}
         >

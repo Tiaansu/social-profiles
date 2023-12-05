@@ -16,7 +16,7 @@ export default function ShareSocialProfiles({ session, disabled }: ShareSocialPr
 
     const copyForReadme = () => {
         navigator.clipboard.writeText(`
-            [![Social Profile](${process.env.NEXT_PUBLIC_BASE_URL}/api/social-profiles/${session.user.id}/github)](${process.env.NEXT_PUBLIC_BASE_URL})
+            [![Social Profile](${process.env.NEXT_PUBLIC_BASE_URL}/api/social-profiles/${session.user.id}/github)](${process.env.NEXT_PUBLIC_BASE_URL}/${session.user.id})
         `);
         setReadmeCopied(true);
 

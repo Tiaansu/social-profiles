@@ -1,12 +1,13 @@
 import prisma from '@/prisma/client';
+import { ObjectId } from 'mongodb';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const PATCH = async (req: NextRequest, { params }: { params: { userId: string; id: string; } }) => {
     const { userId, id } = params;
 
     // Checking if the userId or id is less than 0
-    if (parseInt(userId) <= 0 || parseInt(id) <= 0) {
-        return NextResponse.json([], { status: 400 });
+    if (!ObjectId.isValid(userId) || !ObjectId.isValid(id)) {
+        return NextResponse.json({ message: 'Invalid userId or id!' }, { status: 400 });
     }
 
     try {
@@ -18,7 +19,7 @@ export const PATCH = async (req: NextRequest, { params }: { params: { userId: st
         }: any = await req.json();
 
         if (!platform || !label || !color) {
-            return NextResponse.json({ message: 'Missing platform, label, or color.' }, { status: 400 });
+            return NextResponse.json({ message: 'Missing platform, label, or color.' }, { status: 403 });
         }
 
         await prisma.socialProfiles.update({
@@ -45,7 +46,7 @@ export const PATCH = async (req: NextRequest, { params }: { params: { userId: st
         });
 
         if (!socialProfiles) {
-            return NextResponse.json([]);
+            return NextResponse.json({ message: 'The user does not have social profiles shared yet' }, { status: 404 });
         }
 
         const socialProfilesMap = socialProfiles.map((socialProfile) => {

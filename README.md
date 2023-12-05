@@ -9,7 +9,7 @@ You have two options to share your social profiles, first is by adding it in you
 
 - For adding in your `README.md`, copy this and replace `:userId` with your userId (found on the [website](https://social-profiles.tiaansu.vercel.app/)).
 ```md
-[![Discord Presence](https://social-profiles.tiaansu.vercel.app/api/social-profiles/:id/github)](https://social-profiles.tiaansu.vercel.app/)
+[![Discord Presence](https://social-profiles.tiaansu.vercel.app/api/social-profiles/:id/github)](https://social-profiles.tiaansu.vercel.app/:id)
 ```
 
 It should display something similar to the following:
